@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+ul a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+ul a:hover {
+  color: hotpink;
+}
+
+ul li {
+  text-align: center;
+  border-right: 1px black solid;
+}
+
+.contact {
+  border-right: none;
+}
+
+.menu {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #ffcccb;
+}
