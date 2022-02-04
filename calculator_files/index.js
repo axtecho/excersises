@@ -5,7 +5,6 @@ const secondnumber = document.querySelector("#secondnumber");
 const calculate = document.querySelector("#calculate");
 const result = document.querySelector("#results");
 const operator = document.querySelector("#operator");
-const node = document.createElement("li");
 let finalResult;
 
 let fn = Number(firstnumber.value);
@@ -35,6 +34,7 @@ function reading() {
 }
 
 function calculating(opValue) {
+  const node = document.createElement("li");
   const displayResult = document.createTextNode(finalResult);
   node.appendChild(displayResult);
   result.appendChild(node);
