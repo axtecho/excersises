@@ -6,8 +6,8 @@ const result = document.querySelector("#results");
 const operator = document.querySelector("#operator");
 let finalResult;
 
-let fn = Number(firstnumber.value);
-let sn = Number(secondnumber.value);
+/* let fn = Number(firstnumber.value);
+let sn = Number(secondnumber.value); */
 
 function start() {
   document.querySelector("#calculate").addEventListener("click", reading);
@@ -28,7 +28,7 @@ function reading() {
   calculating();
 }
 
-function calculating(opValue) {
+function calculating() {
   const node = document.createElement("li");
   const displayResult = document.createTextNode(finalResult);
   node.appendChild(displayResult);
@@ -42,5 +42,6 @@ function reAssignValue() {
 
 function clearResults() {
   result.innerHTML = "";
-  console.log(result.childNodes);
+  firstnumber.value = "";
+  secondnumber.value = "";
 }
