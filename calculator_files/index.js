@@ -4,16 +4,19 @@ const firstnumber = document.querySelector("#firstnumber");
 const secondnumber = document.querySelector("#secondnumber");
 const result = document.querySelector("#results");
 const operator = document.querySelector("#operator");
+const round = document.querySelector("#doround");
 let finalResult;
+let roundedNumbers;
 
 /* let fn = Number(firstnumber.value);
 let sn = Number(secondnumber.value); */
-
 function start() {
-  document.querySelector("#calculate").addEventListener("click", reading);
+  document.querySelector("#calculate").addEventListener("click", calculating);
   document.querySelector("#clear").addEventListener("click", clearResults);
 }
-function reading() {
+function calculating() {
+  console.log(round.checked);
+
   let fn = Number(firstnumber.value);
   let sn = Number(secondnumber.value);
   if (operator.value === "sub") {
@@ -25,10 +28,24 @@ function reading() {
   } else if (operator.value === "add") {
     finalResult = fn + sn;
   }
-  calculating();
+  if (round.checked == true) {
+    roundnumbers();
+  } else {
+    displaying();
+  }
+}
+function roundnumbers() {
+  let roundedNumbers = finalResult.toFixed(2);
+  const node = document.createElement("li");
+  const displayResult = document.createTextNode(roundedNumbers);
+  node.appendChild(displayResult);
+  result.appendChild(node);
+
+  console.log(roundedNumbers);
+  /* reAssignValueRounded(); */
 }
 
-function calculating() {
+function displaying() {
   const node = document.createElement("li");
   const displayResult = document.createTextNode(finalResult);
   node.appendChild(displayResult);
@@ -39,7 +56,9 @@ function calculating() {
 function reAssignValue() {
   firstnumber.value = finalResult;
 }
-
+function reAssignValueRounded() {
+  firstnumber.value = roundedNumbers;
+}
 function clearResults() {
   result.innerHTML = "";
   firstnumber.value = "";
