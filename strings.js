@@ -81,3 +81,7 @@ console.log(`_${SQ5}_`);
 /* Q6 */
 const SQ6 = wizard.substring(2, 5);
 console.log(`_${SQ6}_`);
+
+const nombre = "Lasse Weber Joergensen";
+
+console.log(nombre.indexOf(" ") + 1);

@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 33vw);
+  height: 100vh;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  grid-column: 2;
+  justify-content: center;
+}
+#textinput,
+.output,
+#options,
+#generate {
+  width: 20vw;
+  height: 3vw;
+}
+
+#outputlabel {
+  margin-top: 4vw;
+}
+
+#options {
+  margin-bottom: 3vw;
+  width: 20vw;
+}
+#generate {
+}
