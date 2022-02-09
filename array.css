@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: grid;
+  grid-template-columns: 10vw 80vw 10vw;
+}
+.table {
+  grid-column: 2/3;
+  width: 60vw;
+  height: 50vh;
+  border: 1px solid black;
+  justify-self: center;
+  margin-top: 10vw;
+  display: grid;
+  grid-template-columns: repeat(3, 20vw);
+  grid-template-rows: repeat(5, 10vh);
+}
+
+.table div {
+  border: 1px solid black;
+}
+
+#push,
+#pop,
+#unshift,
+#shift {
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+#actionPush,
+#actionPop,
+#actionUnshift,
+#actionShift {
+  grid-column: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 1rem;
+}
+#actionPush {
+  grid-row: 2;
+}
+#actionPop {
+  grid-row: 3;
+}
+#actionUnshift {
+  grid-row: 4;
+}
+
+#wherePush,
+#wherePop,
+#whereUnshift,
+#whereShift {
+  grid-column: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 1rem;
+}
+#wherePop {
+  grid-row: 3;
+}
+#wherePush {
+  grid-row: 2;
+}
+#whereUnshift {
+  grid-row: 4;
+}
