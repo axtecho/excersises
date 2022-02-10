@@ -3,7 +3,7 @@ window.addEventListener("load", start);
 const output = document.querySelector("#output");
 const generate = document.querySelector("#generate");
 const options = document.querySelector("#options");
-let info;
+/* let info; */
 function start() {
   generate.addEventListener("click", determineAction);
 }
@@ -13,7 +13,8 @@ function determineAction() {
 
   if (options.value === "opt1") {
     const changeInput = input.charAt(0).toUpperCase();
-    info = changeInput + input.substring(1).toLowerCase();
+    let info = changeInput + input.substring(1).toLowerCase();
+    displayOutput(info);
   } else if (options.value === "opt2") {
     info = input.substring(input.indexOf(1), input.indexOf(" "));
   } else if (options.value === "opt3") {
@@ -35,10 +36,9 @@ function determineAction() {
   } else if (options.value === "opt8") {
     console.log("opt8");
   }
-  displayOutput();
 }
 
-function displayOutput() {
+function displayOutput(info) {
   /*   console.log(toUpperCase + version2.substring(1).toLowerCase());
    */
   console.log(info);

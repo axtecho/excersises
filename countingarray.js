@@ -1,14 +1,17 @@
 "use strict";
 window.addEventListener("load", clock);
-const array = [];
-let counter = 0;
+const array = [0];
+let counter = 1;
 
 function clock() {
-  counter++;
-  if (counter < 9) {
-    setTimeout(clock, 2000);
+  console.log(array);
+  if (array.length < 9) {
+    array.unshift(counter);
+  } else {
+    array.unshift(counter);
+    array.pop(-1);
   }
 
-  array.push(counter);
-  console.log(array);
+  counter++;
+  setTimeout(clock, 1000);
 }
