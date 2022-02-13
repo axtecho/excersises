@@ -22,6 +22,8 @@ function loadJSON() {
 function prepareObjects(jsonData) {
   jsonData.forEach((jsonObject) => {
     // TODO: Create new object with cleaned data - and store that in the allAnimals array
+    /*     console.log(jsonObject);
+     */
     const fullText = jsonObject.fullname;
     const animal = Object.create(Animal);
     animal.age = jsonObject.age;
@@ -39,7 +41,6 @@ function prepareObjects(jsonData) {
   });
   displayList();
 }
-
 function displayList() {
   // clear the list
   document.querySelector("#list tbody").innerHTML = "";
@@ -49,8 +50,8 @@ function displayList() {
 }
 
 function displayAnimal(animal) {
-  console.log();
-  // create clone
+  /*   console.log();
+   */ // create clone
   const clone = document
     .querySelector("template#animal")
     .content.cloneNode(true);
