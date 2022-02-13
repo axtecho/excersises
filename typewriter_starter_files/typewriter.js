@@ -1,21 +1,21 @@
 "use strict";
 
 window.addEventListener("load", start);
-window.addEventListener("click", init);
 const text = document.querySelector("#typewriter").innerHTML;
 let textchange = document.querySelector("#typewriter");
-const iterator = text.length;
-let i = 0;
+textchange.innerHTML = [];
+console.log("TEXT -", text.length);
+console.log("TEXTCHANGE -", textchange.innerHTML.length);
+
 function start() {
-  console.log("start");
-  console.log(text);
-  /*   init();
-   */
+  const textSplit = text.split("");
+  init(textSplit);
 }
 
-function init() {
-  console.log("init");
-  console.log(iterator);
-
-  textchange.innerHTML = "muthafucker";
+function init(textSplit) {
+  console.log("textSPLIT", textSplit);
+  if (textchange.innerHTML.length < text.length) {
+    console.log("eoo");
+    textchange.innerHTML = textSplit[${}]
+  }
 }
