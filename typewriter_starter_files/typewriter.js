@@ -1,21 +1,28 @@
 "use strict";
 
-window.addEventListener("load", start);
-const text = document.querySelector("#typewriter").innerHTML;
-let textchange = document.querySelector("#typewriter");
-textchange.innerHTML = [];
-console.log("TEXT -", text.length);
-console.log("TEXTCHANGE -", textchange.innerHTML.length);
+window.addEventListener("click", start);
+const text = document.querySelector(".typewritten");
+let typedText = text.innerHTML;
+const max = typedText.length + 1;
+let i = 1;
 
 function start() {
-  const textSplit = text.split("");
-  init(textSplit);
+  /*   console.log("setup", typedText);
+   */ init();
 }
 
-function init(textSplit) {
-  console.log("textSPLIT", textSplit);
-  if (textchange.innerHTML.length < text.length) {
-    console.log("eoo");
-    textchange.innerHTML = textSplit[${}]
+function init() {
+  loop();
+}
+
+function loop() {
+  /*   console.log(i);
+   */ let newString = typedText.substring(0, i);
+  console.log(newString);
+  document.querySelector("#typewriter").innerHTML = newString;
+  i++;
+
+  if (i < max) {
+    setTimeout(loop, 100);
   }
 }
