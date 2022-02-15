@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="color-selector.css" />
+    <title>Color selector</title>
+  </head>
+  <body>
+    <div class="colorSelector">
+      <div class="selector">
+        <label for="colorSelector">Color</label>
+        <input
+          type="color"
+          value="#ff0000"
+          name="colorSelector"
+          id="colorSelector"
+        />
+      </div>
+
+      <div class="displaycolor"></div>
+      <div class="hex">
+        <p>HEX:</p>
+        <p class="hexInput"></p>
+      </div>
+      <div class="rgb">
+        <p>RGB:</p>
+        <p class="rgbInput"></p>
+      </div>
+      <div class="hsl">
+        <p>HSL:</p>
+        <p></p>
+      </div>
+    </div>
+  </body>
+  <script src="color-selector.js"></script>
+</html>

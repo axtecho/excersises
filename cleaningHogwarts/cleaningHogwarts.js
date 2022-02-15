@@ -1,6 +1,6 @@
 "use strict";
 const allStudents = [];
-console.log(allStudents);
+
 const url = "https://petlatkea.dk/2021/hogwarts/students.json";
 
 fetch(url)
@@ -62,9 +62,12 @@ function handleData(students) {
     /*     console.log(`_${cleanstudents.house}_`);
      */
     allStudents.push(cleanstudents);
+    consoleTable();
   });
 }
-
+function consoleTable() {
+  console.table(allStudents);
+}
 const CleanStudents = {
   fn: "firstname",
   ln: "lastname",

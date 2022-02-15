@@ -1,7 +1,7 @@
 "use strict";
 
 window.addEventListener("click", start);
-const text = document.querySelector(".typewritten");
+const text = document.querySelector(".typewritten");git a
 let typedText = text.innerHTML;
 const max = typedText.length + 1;
 let i = 1;
