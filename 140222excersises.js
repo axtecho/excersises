@@ -59,7 +59,7 @@ function getNameParts(fullname) {
 }
 console.log(getFullName); */
 /* Convert from hex to integer */
-let numberAsHex = "facade";
+/* let numberAsHex = "facade";
 hexToRGB(numberAsHex);
 function hexToRGB(hexCode) {
   const rValue = parseInt(hexCode.substring(0, 2), 16);
@@ -67,7 +67,7 @@ function hexToRGB(hexCode) {
   const bValue = parseInt(hexCode.substring(4, 6), 16);
 
   console.log(rValue, gValue, bValue);
-}
+} */
 
 /* Convert from integer to hex */
 /* let someNumberAsInteger = {
@@ -111,4 +111,70 @@ function cssToRGB(simpleNumberAsString) {
 }
  */
 
-let randomNumber = Math.random();
+/* const people = ["Harry", "Ron", "Hermione", "Neville"];
+
+function testParms(a, b, c, d) {
+  console.log(`a: ${a}, b:${b}, c: ${c}, d:${d}`);
+}
+
+people.forEach(testParms);
+ */
+
+const animals = [
+  {
+    name: "Mandu",
+    type: "cat",
+  },
+  {
+    name: "Mia",
+    type: "cat",
+  },
+  {
+    name: "LeeLoo",
+    type: "dog",
+  },
+  {
+    name: "ScoobyDoo",
+    type: "dog",
+  },
+];
+
+function isCat(animal) {
+  if (animal.type === "cat") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function firstLetterBeginsWithS(animal) {
+  if (animal.name.startsWith("S")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function all() {
+  return true;
+}
+
+console.log("animals", animals);
+
+console.log("---");
+
+//Given a table in HTML
+//Click on a filer filters table
+function prepareAnimals(filterFunction) {
+  //filter on a criteia
+  let filteredAnimals = animals.filter(filterFunction);
+
+  displayAnimals(filteredAnimals);
+}
+
+function displayAnimals(filteredAnimals) {
+  //Fill table with filtered animals
+  filteredAnimals.forEach((animal) => console.log(animal));
+}
+
+prepareAnimals(all);

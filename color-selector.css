@@ -32,5 +32,12 @@
   font-size: 1rem;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.colorValues {
+  display: flex;
+  flex-direction: column;
+  width: 18vw;
+  margin: 1vw auto;
 }

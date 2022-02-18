@@ -1,39 +1,67 @@
 "use strict";
 
 const colorInput = document.querySelector("#colorSelector");
+window.addEventListener("load", start);
+function start() {
+  colorInput.addEventListener("input", readValue);
+  readValue();
+}
+function readValue() {
+  console.log(colorInput.value);
 
-colorInput.addEventListener("input", readValue);
-
-function readValue(event) {
-  console.log(event.target.value);
   const theColor = colorInput.value;
-  /*   console.log(theColor);
-   */ document.querySelector(".displaycolor").style.background = theColor;
-  convertToRGB(theColor);
-  setHEXValue(theColor);
-  /*   convertHSL(theColor);
-   */
+
+  delegator(theColor);
 }
-function setHEXValue(HEXvalue) {
-  document.querySelector(".hexInput").textContent = HEXvalue;
+function delegator(hexInput) {
+  console.log(hexInput);
+  let rgbValues = handleRGB(hexInput);
+  let hexValue = handleHEX(hexInput);
+  let hslValue = handleHSL(rgbValues);
+  handleBox(hexInput);
+  displayRGB(rgbValues);
+  displayHEX(hexValue);
+  displayHSL(hslValue);
 }
-function convertToRGB(hexValue) {
+function handleBox(hexInput) {
+  document.querySelector(".displaycolor").style.background = hexInput;
+}
+function displayRGB(value) {
+  document.querySelector(".rgbInput").textContent = value;
+  return;
+}
+
+function displayHEX(value) {
+  document.querySelector(".hexInput").textContent = value;
+}
+function displayHSL(value) {
+  let hslSplit = value.split(",");
+
+  document.querySelector(
+    ".hslInput"
+  ).textContent = `${hslSplit[0]}, ${hslSplit[1]}%, ${hslSplit[2]}%`;
+}
+
+function handleRGB(hexValue) {
   const rValue = parseInt(hexValue.substring(1, 3), 16);
   const gValue = parseInt(hexValue.substring(3, 5), 16);
   const bValue = parseInt(hexValue.substring(5, 7), 16);
-  document.querySelector(
-    ".rgbInput"
-  ).textContent = `${rValue}, ${gValue}, ${bValue}`;
-  /*   console.log(`${rValue}, ${gValue}, ${bValue}`);
-   */ convertToHSL(`${rValue}, ${gValue}, ${bValue}`);
+
+  return `${rValue}, ${gValue}, ${bValue}`;
 }
 
-function convertToHSL(r, g, b) {
-  console.log(`$`);
-  /* r /= 255;
+function handleHEX(HEXvalue) {
+  return HEXvalue;
+}
+
+function handleHSL(RGBvalues) {
+  let rgbValue = RGBvalues.split(",");
+  let r = rgbValue[0];
+  let g = rgbValue[1];
+  let b = rgbValue[2];
+  r /= 255;
   g /= 255;
   b /= 255;
-
   let h, s, l;
 
   const min = Math.min(r, g, b);
@@ -60,10 +88,9 @@ function convertToHSL(r, g, b) {
   } else {
     s = (max - l) / Math.min(l, 1 - l);
   }
-  // multiply s and l by 100 to get the value in percent, rather than [0,1]
+
   s *= 100;
   l *= 100;
 
-  console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
- */
+  return `${h.toFixed(0)}, ${s.toFixed(0)}, ${l.toFixed(0)}`;
 }
