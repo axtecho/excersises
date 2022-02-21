@@ -3,7 +3,9 @@
 window.addEventListener("DOMContentLoaded", start);
 
 let allAnimals = [];
+let newestArr = [];
 let filterStatus;
+let sortStatus;
 let chosenFilter;
 // The prototype for all animals:
 const Animal = {
@@ -17,12 +19,24 @@ function start() {
   console.log("ready");
 
   // TODO: Add event-listeners to filter and sort buttons
-  /*   document.querySelectorAll(".filter").addEventListener();
-   */
+
   chosenFilter = isAll();
   document.querySelectorAll(".filter").forEach((filter) => {
     filter.addEventListener("click", updateFilterStaturs);
   });
+
+  document
+    .querySelector("[data-sort=name]")
+    .addEventListener("click", updateSortStaturs);
+  document
+    .querySelector("[data-sort=type]")
+    .addEventListener("click", updateSortStaturs);
+  document
+    .querySelector("[data-sort=desc]")
+    .addEventListener("click", updateSortStaturs);
+  document
+    .querySelector("[data-sort=age]")
+    .addEventListener("click", updateSortStaturs);
   loadJSON();
 }
 function updateFilterStaturs() {
@@ -33,6 +47,57 @@ function updateFilterStaturs() {
     return prepareAnimals(isDogs);
   } else {
     return prepareAnimals(isAll);
+  }
+}
+function updateSortStaturs() {
+  sortStatus = this.innerHTML;
+  if (sortStatus === "Name") {
+    return sortAnimals(compareName);
+  } else if (sortStatus === "Type") {
+    return sortAnimals(compareType);
+  } else if (sortStatus === "Description") {
+    return sortAnimals(compareDescrip);
+  } else if (sortStatus === "Age") {
+    return sortAnimals(compareAge);
+  }
+}
+
+function sortAnimals(sortFunction) {
+  if (newestArr.length > 0) {
+    let sortedAnimals = newestArr.sort(sortFunction);
+    displayList(sortedAnimals);
+  } else {
+    let sortedAnimals = allAnimals.sort(sortFunction);
+    displayList(sortedAnimals);
+  }
+}
+
+function compareName(a, b) {
+  if (a.name < b.name) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+function compareType(a, b) {
+  if (a.type < b.type) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+function compareDescrip(a, b) {
+  if (a.desc < b.desc) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+function compareAge(a, b) {
+  if (a.age < b.age) {
+    return -1;
+  } else {
+    return 1;
   }
 }
 async function loadJSON() {
@@ -53,6 +118,10 @@ function prepareObjects(jsonData) {
 function prepareAnimals(filterFunction) {
   let filteredAnimals = allAnimals.filter(filterFunction);
   console.log("prepareAnimals", filteredAnimals);
+
+  newestArr = filteredAnimals;
+  console.log("filtered", newestArr);
+
   displayList(filteredAnimals);
 }
 function isCats(animal) {
